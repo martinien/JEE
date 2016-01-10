@@ -1,0 +1,8 @@
+----------------------------------------------------------------
+2016-01-10 22:28:23.759 GMT:
+Amorçage de Derby version The Apache Software Foundation - Apache Derby - 10.6.2.1 - (999685) : instance a816c00e-0152-2da7-9622-00000c2a7570 
+dans le répertoire de base de données C:\Users\martinien\Documents\NetBeansProjects\isen-jee\code\puissance4\target\gfembed673155705791566202tmp\lib\databases\embedded_default  avec le chargeur de classe ClassRealm[plugin>net.sf.opk:embedded-glassfish-web-plugin:1.2, parent: sun.misc.Launcher$AppClassLoader@5c647e05]
+
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_20-b26
+Chargeur de classe de la base de données démarré - derby.database.classpath=''

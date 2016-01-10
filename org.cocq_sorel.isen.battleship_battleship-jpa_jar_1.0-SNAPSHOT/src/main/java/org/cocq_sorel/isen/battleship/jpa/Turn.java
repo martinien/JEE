@@ -1,0 +1,46 @@
+package org.cocq_sorel.isen.battleship.jpa;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import org.cocq_sorel.isen.battleship.core.ChipColour;
+
+@Entity
+public class Turn {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    Long id;
+
+    @ManyToOne
+    Game game;
+
+    private String colour;
+
+    @Column(name="col")
+    private int column;
+
+    public Turn() {
+
+    }
+
+    public Turn(Game game, ChipColour colour, int column) {
+        this.game = game;
+        this.colour = colour.toString();
+        this.column = column;
+    }
+
+    public ChipColour getColour() {
+        return ChipColour.valueOf(colour);
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+
+}
