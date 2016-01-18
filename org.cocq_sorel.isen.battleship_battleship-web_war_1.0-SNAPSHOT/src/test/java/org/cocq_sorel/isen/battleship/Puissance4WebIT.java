@@ -32,7 +32,7 @@ public class Puissance4WebIT {
         driver.quit();
     }
 
-    @Test
+    /*@Test
     public void itCanBrowseThePage() throws Exception {
         assertThat(page.hasBoard()).isTrue();
         assertThat(page.getColumnsNumber()).isEqualTo(7);
@@ -72,7 +72,7 @@ public class Puissance4WebIT {
         page.reset();
         assertThat(page.getCell(3,0)).isNull();
 
-    }
+    }*/
 
 
 }
