@@ -20,9 +20,6 @@
   </properties>
 
   <modules>
-    <module>battleship-core</module>
-    <module>battleship-jpa</module>
-    <module>battleship-web</module>
     <module>org.cocq_sorel.isen.battleship_battleship-core_jar_1.0-SNAPSHOT</module>
     <module>org.cocq_sorel.isen.battleship_battleship-jpa_jar_1.0-SNAPSHOT</module>
     <module>org.cocq_sorel.isen.battleship_battleship-web_war_1.0-SNAPSHOT</module>
