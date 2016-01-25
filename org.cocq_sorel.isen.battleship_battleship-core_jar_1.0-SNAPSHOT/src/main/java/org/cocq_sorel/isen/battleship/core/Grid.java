@@ -101,7 +101,7 @@ public class Grid {
                 wellPlaced = isShipInGrid(randX, randY, Grid.shipSizes[i], horizontal) && isShipAlone(randX, randY, Grid.shipSizes[i], horizontal);
             }
             
-            addShip(randX, randY, Grid.shipSizes[i], horizontal);
+            addShip(i, randX, randY, Grid.shipSizes[i], horizontal);
         }
     }
     
@@ -175,17 +175,17 @@ public class Grid {
         return isAlone;
     }
     
-    public void addShip(int x, int y, int size, boolean horizontal){        
+    public void addShip(int shipId, int x, int y, int size, boolean horizontal){        
         ShipPart[] parts = new ShipPart[size];
         if(horizontal){
             for (int i = 0; i < size; i++) {
-                parts[i] = new ShipPart(x, y + i, CellState.SHIP);                
+                parts[i] = new ShipPart(shipId, x, y + i, CellState.SHIP);                
                 this.setCell(x, y + i, parts[i]);
             }                        
         }
         else{
             for (int i = 0; i < size; i++) {
-                parts[i] = new ShipPart(x + i, y, CellState.SHIP);                
+                parts[i] = new ShipPart(shipId, x + i, y, CellState.SHIP);                
                 this.setCell(x + i, y, parts[i]);
             }
         }

@@ -11,6 +11,24 @@ package org.cocq_sorel.isen.battleship.core;
  */
 public interface BattleshipGame {
     
-    public void place(int length,int row,int collumn);
+    /**
+	 * Fire a bomb at (row, column) coordinates.
+	 * @param row
+	 * @param column
+	 * @throws GameException if it is not allowed to play in that cell.
+	 */
+    void fire(int row, int column) throws GameException;
+    
+    /**
+     * Returns the number of columns.
+     * @return
+     */
+    int getColumnsNumber();
+
+    /**
+     * Returns the number of rows.
+     * @return
+     */
+    int getRowsNumber();
     
 }

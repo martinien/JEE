@@ -10,9 +10,21 @@ package org.cocq_sorel.isen.battleship.core;
  * @author Aurelien
  */
 public class ShipPart extends Cell{
+    private int shipId;
     
-    public ShipPart(int Collumn, int Row, CellState state) {
+    public ShipPart(int shipId, int Collumn, int Row, CellState state) {
         super(Collumn, Row, state);
+        
+        this.shipId = shipId;
     }
+
+    public int getShipId() {
+        return shipId;
+    }
+
+    public void setShipId(int shipId) {
+        this.shipId = shipId;
+    }
+    
     
 }

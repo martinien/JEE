@@ -57,5 +57,11 @@ public class Ship {
         
         return sunk;
     }
+    
+    public void sinkShip(){
+        for (int i = 0; i < shipParts.length; i++) {
+            shipParts[i].setState(CellState.SUNKSHIP);
+        }
+    }
      
 }
