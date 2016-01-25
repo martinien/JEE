@@ -11,30 +11,30 @@ package org.cocq_sorel.isen.battleship.core;
  */
 public class Cell {
     
-    private int Collumn;
-    private int Row;
+    private int column;
+    private int row;
     private CellState state;
 
-    public Cell(int Collumn, int Row, CellState state) {
-        this.Collumn = Collumn;
-        this.Row = Row;
+    public Cell(int column, int row, CellState state) {
+        this.column = column;
+        this.row = row;
         this.state = state;
     }
 
-    public int getCollumn() {
-        return Collumn;
+    public int getcolumn() {
+        return column;
     }
 
-    public void setCollumn(int Collumn) {
-        this.Collumn = Collumn;
+    public void setcolumn(int column) {
+        this.column = column;
     }
 
-    public int getRow() {
-        return Row;
+    public int getrow() {
+        return row;
     }
 
-    public void setRow(int Row) {
-        this.Row = Row;
+    public void setrow(int row) {
+        this.row = row;
     }
 
     public CellState getState() {
