@@ -31,4 +31,8 @@ public interface BattleshipGame {
      */
     int getRowsNumber();
     
+    CellState getCellState(int row, int column);
+    
+    boolean asWon();
+    
 }

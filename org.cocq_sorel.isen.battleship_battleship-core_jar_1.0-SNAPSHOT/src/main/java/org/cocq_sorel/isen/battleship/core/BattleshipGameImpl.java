@@ -5,6 +5,8 @@
  */
 package org.cocq_sorel.isen.battleship.core;
 
+import java.util.List;
+
 /**
  *
  * @author Aurelien
@@ -16,7 +18,12 @@ public class BattleshipGameImpl implements BattleshipGame{
     public static final int SHIPS_NUMBER = 5;
     public static final String OUTSIDE_OF_BOARD_ERROR = "It is not possible to play outside of the board";
     
-    Grid board = new Grid(COLUMNS_NUMBER, ROWS_NUMBER);
+    Grid board;
+    
+    public BattleshipGameImpl(){
+        board = new Grid(COLUMNS_NUMBER, ROWS_NUMBER);
+        initBoard();
+    }
     
     private void initBoard() {
 
@@ -68,6 +75,25 @@ public class BattleshipGameImpl implements BattleshipGame{
             default:
                 break;
         }
+    }
+
+    @Override
+    public CellState getCellState(int row, int column) {
+        return this.board.getCell(row, column).getState();        
+    }
+
+    @Override
+    public boolean asWon() {
+        List<Ship> ships = this.board.getShips();
+        int nbSunkShips = 0;
+        
+        for (Ship ship : ships) {
+            if(ship.isSunk()){
+                nbSunkShips++;
+            }
+        }
+        
+        return (nbSunkShips == SHIPS_NUMBER);
     }
     
 }
