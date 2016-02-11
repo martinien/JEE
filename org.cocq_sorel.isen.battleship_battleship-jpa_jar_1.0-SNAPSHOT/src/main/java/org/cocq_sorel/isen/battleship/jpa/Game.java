@@ -23,15 +23,13 @@ public class Game {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
-    private String token;
+    private String token;   
+    
 
-    @OneToMany(mappedBy="game", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-    @OrderColumn(name="index")
-    private List<Turn> turns = new ArrayList<>();
-
-    private String currentTurn = ChipColour.RED.toString();
+    private Integer currentTurn;
 
     public Game() {
+        currentTurn = 0;
 
     }
 
@@ -44,16 +42,13 @@ public class Game {
 
     }
 
-    public List<Turn> getTurns() {
-        return turns;
+   
+    public Integer getCurrentTurn() {
+       return currentTurn ;
     }
-
-    public ChipColour getCurrentTurn() {
-        return  ChipColour.valueOf(currentTurn);
-    }
-
-    public void setCurrentTurn(ChipColour colour) {
-        currentTurn = colour.toString();
+    
+    public void endTurn(){
+        currentTurn ++ ;
     }
 
 }
