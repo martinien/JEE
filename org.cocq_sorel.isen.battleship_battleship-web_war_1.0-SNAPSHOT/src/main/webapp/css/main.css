@@ -31,5 +31,21 @@
 }
 
 #board {
-    width: 400px;
+    width: 500px;
+}
+
+.WATER, .SHIP{
+    background-color: #00b2f3;
+}
+
+.HITWATER{
+    background-color: #00b2f3;
+}
+
+.HITSHIP{
+    background-color: #ef404a;
+}
+
+.SUNKSHIP{
+    background-color: #000;
 }

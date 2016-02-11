@@ -31,12 +31,16 @@
     </div>
 
     <div class="main container">
-        <div id="board" class="ui seven column padded grid">
+        <div id="board" class="ui ten column grid">
 
-            <c:forEach items="${game.cells}" var="cell">
-	          <a href="?playcol=${cell}" class="blue column"> ${cell}
-	          	
-	          </a>
+            <c:forEach var="i" begin="0" end="${game.collumnsNumber - 1}">
+                <div class="column">
+                    <c:forEach var="j" begin="0" end="${game.rowsNumber - 1}">                        
+                        <a href="?row=${j}&col=${i}" class="massive ${game.getStateColor(game.getCellStatus(i, j))} square ui icon button">
+                             ${game.getCellStatus(i, j)}
+                          </a>                        
+                    </c:forEach>
+                </div>
           </c:forEach>
         </div>
 

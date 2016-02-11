@@ -37,10 +37,7 @@ public class BattleshipDAO {
     }
 
     public BattleshipAdapter loadFromToken(String token) {
-        Game game = (Game) em
-                .createQuery("SELECT g FROM Game g WHERE g.token = :token")
-                .setParameter("token", token).getSingleResult();
-
+        Game game = (Game) em.createQuery("SELECT g FROM Game g WHERE g.token = :token").setParameter("token", token).getSingleResult();        
         return new BattleshipAdapter(this, game);
     }
 

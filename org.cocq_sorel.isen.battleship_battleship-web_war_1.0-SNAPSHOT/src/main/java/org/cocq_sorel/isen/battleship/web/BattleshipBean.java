@@ -89,5 +89,22 @@ public class BattleshipBean implements Serializable {
         game = dao.loadFromToken(token);
 
     }
+    
+    public String getStateColor(CellState state){
+        switch(state){
+            case SHIP:
+                return "grey";
+            case WATER:
+                return "grey";
+            case HITSHIP:
+                return "red";
+            case HITWATER:
+                return "blue";
+            case SUNKSHIP:
+                return "black";
+            default:
+                return "grey";
+        }
+    }
 
 }

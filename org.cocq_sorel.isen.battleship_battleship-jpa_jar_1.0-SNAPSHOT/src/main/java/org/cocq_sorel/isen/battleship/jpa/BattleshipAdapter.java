@@ -23,6 +23,7 @@ public class BattleshipAdapter implements BattleshipGame {
     public void fire(int row, int column) throws GameException {
         coreGame.fire(row, column);
         game.endTurn();
+        dao.save(game);
     }
 
     @Override

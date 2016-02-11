@@ -36,7 +36,7 @@ public class GameServlet extends HttpServlet {
         String token = getTokenFromRequest(request);
 
         if (StringUtils.isEmpty(token) || request.getParameter("reset") != null) {
-            LOG.debug("Empty token, creating a new game");
+            LOG.debug("Empty token, creating a new game");            
             game.createNewGame();
             redirectToGameRoot(response, request);
         } else {
@@ -45,10 +45,12 @@ public class GameServlet extends HttpServlet {
             }
             game.loadFromToken(token);
 
-            String playCol = request.getParameter("playcol");
-            if (playCol != null) {
-               // game.play(Integer.parseInt(playCol));
-               // redirectToGameRoot(response, request);
+            String row = request.getParameter("row");
+            String col = request.getParameter("col");                   
+            
+            if (row != null && col != null) {
+               game.hit(Integer.parseInt(row), Integer.parseInt(col));
+               redirectToGameRoot(response, request);
             } else {
                 request.getRequestDispatcher("/game.jsp").include(request,
                         response);
