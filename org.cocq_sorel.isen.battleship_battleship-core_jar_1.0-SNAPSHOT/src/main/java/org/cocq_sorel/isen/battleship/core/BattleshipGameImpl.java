@@ -57,20 +57,19 @@ public class BattleshipGameImpl implements BattleshipGame{
         }
         
         Cell firedCell = board.getCell(row, column);
-        
+                
         switch(firedCell.getState()){
             case WATER:
                 board.getCell(row, column).setState(CellState.HITWATER);
                 break;
             case SHIP:
-                board.getCell(row, column).setState(CellState.HITSHIP);
-                ShipPart part = (ShipPart) board.getCell(row, column);
+                firedCell.setState(CellState.HITSHIP);
+                ShipPart part = (ShipPart) firedCell;
                 Ship hitShip = board.getShip(part.getShipId());
                 
-                if(hitShip.isSunk()){
+                if(hitShip.getNbHitParts() == hitShip.getSize()){                    
                     hitShip.sinkShip();
-                }
-                
+                }                            
                 break;
             default:
                 break;

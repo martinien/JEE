@@ -43,19 +43,29 @@ public class Ship {
     public void setShipParts(ShipPart[] shipParts) {
         this.shipParts = shipParts;
     }
-
-    public boolean isSunk() {
-        boolean sunk = true;
-        int shipPartId = 0;
+    
+    public int getNbHitParts(){
+        int nbHitParts = 0;
         
-        while(sunk = true && shipPartId < this.getSize()){
-            if(this.getShipParts()[shipPartId].getState() == CellState.SHIP){
-                sunk = false;
+        for (int i = 0; i < this.getSize(); i++) {
+            if(this.getShipParts()[i].getState() == CellState.HITSHIP){                
+                nbHitParts++;
             }
-            shipPartId++;
         }
         
-        return sunk;
+        return nbHitParts;
+    }
+
+    public boolean isSunk() {               
+        int nbSunkParts = 0;
+        
+        for (int i = 0; i < this.getSize(); i++) {
+            if(this.getShipParts()[i].getState() == CellState.SUNKSHIP){                
+                nbSunkParts++;
+            }
+        }
+        
+        return nbSunkParts == getSize();
     }
     
     public void sinkShip(){
