@@ -1,8 +1,6 @@
 package org.cocq_sorel.isen.battleship.jpa;
 
-import java.math.BigDecimal;
 
-import org.cocq_sorel.isen.battleship.core.ChipColour;
 import org.cocq_sorel.isen.battleship.core.GameException;
 import org.cocq_sorel.isen.battleship.core.BattleshipGame;
 import org.cocq_sorel.isen.battleship.core.BattleshipGameImpl;
@@ -17,8 +15,7 @@ public class BattleshipAdapter implements BattleshipGame {
     public BattleshipAdapter(BattleshipDAO dao, Game game) {
         this.dao = dao;
         this.game = game;
-        this.coreGame = new BattleshipGameImpl();   
-        
+        this.coreGame = new BattleshipGameImpl();          
 
     }
 
@@ -38,6 +35,17 @@ public class BattleshipAdapter implements BattleshipGame {
         return this.coreGame.getRowsNumber();
     }
     
+    @Override
+     public CellState getCellState(int row, int column) {
+        return this.coreGame.getCellState(row,column);   
+     }
+
+    
+    @Override
+    public boolean asWon() {
+        return this.coreGame.asWon();
+    }
+    
     public String getToken() {
         return game.getToken();
     }
@@ -45,16 +53,12 @@ public class BattleshipAdapter implements BattleshipGame {
     public Integer getCurrentTurn(){
         return game.getCurrentTurn();
     }
+    
+   
 
-    @Override
-    public CellState getCellState(int row, int column) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean asWon() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
+    
+   
 
   
 
