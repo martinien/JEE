@@ -85,9 +85,9 @@ public class BattleshipBean implements Serializable {
         return game.getToken();
     }
 
-    public void loadFromToken(String token) {
-        game = dao.loadFromToken(token);
-
+    public void loadFromToken(String token) {        
+        game = dao.loadFromToken(token);   
+        System.err.println(game.getShips().size());
     }
     
     public String getStateColor(CellState state){

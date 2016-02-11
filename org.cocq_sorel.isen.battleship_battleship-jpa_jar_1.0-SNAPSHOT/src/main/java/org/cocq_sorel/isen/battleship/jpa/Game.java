@@ -3,16 +3,12 @@ package org.cocq_sorel.isen.battleship.jpa;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OrderColumn;
 
-import org.cocq_sorel.isen.battleship.core.ChipColour;
+import org.cocq_sorel.isen.battleship.core.Ship;
 
 
 @Entity(name="Game")
@@ -25,12 +21,12 @@ public class Game {
 
     private String token;   
     
+    private List<Turn> turns; 
+    private List<Ship> ships;
 
-    private Integer currentTurn;
-
-    public Game() {
-        currentTurn = 0;
-
+    public Game() {        
+        turns = new ArrayList<>();
+        ships = new ArrayList<>();
     }
 
     public String getToken() {
@@ -41,14 +37,22 @@ public class Game {
         this.token = token;
 
     }
-
-   
-    public Integer getCurrentTurn() {
-       return currentTurn ;
-    }
     
     public void endTurn(){
-        currentTurn ++ ;
+        
+    }
+    
+    
+    public List<Turn> getTurns(){
+        return this.turns;
+    }
+    
+    public List<Ship> getShips(){
+        return ships;
+    }
+    
+    public Integer getCurrentTurn(){
+        return getTurns().size();
     }
 
 }

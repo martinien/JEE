@@ -5,6 +5,8 @@
  */
 package org.cocq_sorel.isen.battleship.core;
 
+import java.util.List;
+
 /**
  *
  * @author martinien
@@ -32,6 +34,8 @@ public interface BattleshipGame {
     int getRowsNumber();
     
     CellState getCellState(int row, int column);
+    
+    List<Ship> getShips();
     
     boolean asWon();
     

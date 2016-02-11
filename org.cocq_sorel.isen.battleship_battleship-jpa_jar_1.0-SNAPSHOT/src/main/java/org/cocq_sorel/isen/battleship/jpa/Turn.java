@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import org.cocq_sorel.isen.battleship.core.ChipColour;
 
 @Entity
 public class Turn {
@@ -17,25 +16,23 @@ public class Turn {
     Long id;
 
     @ManyToOne
-    Game game;
-
-    private String colour;
-
-    @Column(name="col")
-    private int column;
+    Game game;    
+    
+    private int column;        
+    private int row;
 
     public Turn() {
 
     }
 
-    public Turn(Game game, ChipColour colour, int column) {
+    public Turn(Game game, int row, int column) {
         this.game = game;
-        this.colour = colour.toString();
+        this.row = row;
         this.column = column;
     }
 
-    public ChipColour getColour() {
-        return ChipColour.valueOf(colour);
+    public int getRow(){
+        return row;
     }
 
     public int getColumn() {

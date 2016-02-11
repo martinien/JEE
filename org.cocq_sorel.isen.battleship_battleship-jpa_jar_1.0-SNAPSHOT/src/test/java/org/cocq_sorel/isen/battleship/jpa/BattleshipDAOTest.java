@@ -5,7 +5,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-import org.cocq_sorel.isen.battleship.core.ChipColour;
 import org.cocq_sorel.isen.battleship.jpa.guice.GuiceRunner;
 import org.cocq_sorel.isen.battleship.jpa.guice.H2DBModule;
 import org.cocq_sorel.isen.battleship.jpa.guice.Modules;

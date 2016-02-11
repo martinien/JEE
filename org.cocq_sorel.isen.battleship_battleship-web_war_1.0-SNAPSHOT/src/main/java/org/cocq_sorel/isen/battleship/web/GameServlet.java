@@ -46,7 +46,7 @@ public class GameServlet extends HttpServlet {
             game.loadFromToken(token);
 
             String row = request.getParameter("row");
-            String col = request.getParameter("col");                   
+            String col = request.getParameter("col");                         
             
             if (row != null && col != null) {
                game.hit(Integer.parseInt(row), Integer.parseInt(col));

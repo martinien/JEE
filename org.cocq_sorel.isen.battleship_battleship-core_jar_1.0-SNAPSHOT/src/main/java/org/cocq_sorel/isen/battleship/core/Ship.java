@@ -12,6 +12,7 @@ package org.cocq_sorel.isen.battleship.core;
 public class Ship {
     private int size;    
     private ShipPart[] shipParts;
+    private boolean horizontal;
 
     public Ship() {
         this.size = 3;        
@@ -23,9 +24,10 @@ public class Ship {
         this.shipParts = new ShipPart[this.size];
     }
 
-    public Ship(int size, ShipPart[] shipParts) {
+    public Ship(int size, ShipPart[] shipParts, boolean horizontal) {
         this.size = size;        
         this.shipParts = shipParts;
+        this.horizontal = horizontal;
     }
 
     public int getSize() {
@@ -42,6 +44,14 @@ public class Ship {
 
     public void setShipParts(ShipPart[] shipParts) {
         this.shipParts = shipParts;
+    }
+
+    public boolean isHorizontal() {
+        return horizontal;
+    }
+
+    public void setHorizontal(boolean horizontal) {
+        this.horizontal = horizontal;
     }
     
     public int getNbHitParts(){

@@ -197,7 +197,7 @@ public class Grid {
             }
         }
         
-        Ship newShip = new Ship(size, parts);
+        Ship newShip = new Ship(size, parts, horizontal);
         this.ships.add(newShip);
     }
 }

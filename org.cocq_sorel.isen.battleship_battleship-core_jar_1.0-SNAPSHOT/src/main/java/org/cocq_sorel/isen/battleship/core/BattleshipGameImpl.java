@@ -20,20 +20,27 @@ public class BattleshipGameImpl implements BattleshipGame{
     
     Grid board;
     
-    public BattleshipGameImpl(){
+    public BattleshipGameImpl(List<Ship> ships){
         board = new Grid(COLUMNS_NUMBER, ROWS_NUMBER);
-        initBoard();
+        initBoard(ships);
     }
     
-    private void initBoard() {
+    private void initBoard(List<Ship> ships) {
 
         for (int i = 0; i < ROWS_NUMBER; i++) {
             for (int j = 0; j < COLUMNS_NUMBER; j++) {
                 board.setCell(i, j, new Cell(i, j, CellState.WATER));
             }
+        }       
+
+        if(ships == null){
+            board.initializeShips(SHIPS_NUMBER);
         }
-        
-        board.initializeShips(SHIPS_NUMBER);
+        else{
+            for (Ship ship : ships) {
+                board.addShip(ship.getShipParts()[0].getShipId(), ship.getShipParts()[0].getrow(), ship.getShipParts()[0].getcolumn(), ship.getSize(), ship.isHorizontal());
+            }
+        }
     }
 
     @Override
@@ -93,6 +100,11 @@ public class BattleshipGameImpl implements BattleshipGame{
         }
         
         return (nbSunkShips == SHIPS_NUMBER);
+    }
+
+    @Override
+    public List<Ship> getShips() {
+        return board.getShips();
     }
     
 }

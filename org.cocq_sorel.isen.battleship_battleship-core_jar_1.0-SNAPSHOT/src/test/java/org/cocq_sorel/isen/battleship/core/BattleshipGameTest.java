@@ -20,7 +20,7 @@ public class BattleshipGameTest {
     
     @Before
     public void doBefore() throws Exception {
-        game = new BattleshipGameImpl();
+        game = new BattleshipGameImpl(null);
     }
     
     @Test
