@@ -19,7 +19,7 @@ public class GameServlet extends HttpServlet {
     private static final long serialVersionUID = 4590295895653754427L;
 
     @Inject
-    Puissance4Bean game;
+    BattleshipBean game;
 
     private static final Log LOG = LogFactory.getLog(GameServlet.class);
 
@@ -47,8 +47,8 @@ public class GameServlet extends HttpServlet {
 
             String playCol = request.getParameter("playcol");
             if (playCol != null) {
-                game.play(Integer.parseInt(playCol));
-                redirectToGameRoot(response, request);
+               // game.play(Integer.parseInt(playCol));
+               // redirectToGameRoot(response, request);
             } else {
                 request.getRequestDispatcher("/game.jsp").include(request,
                         response);
