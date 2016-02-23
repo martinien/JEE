@@ -31,14 +31,14 @@ public class BattleshipGameImpl implements BattleshipGame{
             for (int j = 0; j < COLUMNS_NUMBER; j++) {
                 board.setCell(i, j, new Cell(i, j, CellState.WATER));
             }
-        }       
-
+        }               
+        
         if(ships == null){
-            board.initializeShips(SHIPS_NUMBER);
+            board.initializeShips(SHIPS_NUMBER);            
         }
-        else{
-            for (Ship ship : ships) {
-                board.addShip(ship.getShipParts()[0].getShipId(), ship.getShipParts()[0].getrow(), ship.getShipParts()[0].getcolumn(), ship.getSize(), ship.isHorizontal());
+        else{                        
+            for (Ship ship : ships) {                  
+                board.addShipsFromList(ships);
             }
         }
     }
@@ -89,17 +89,18 @@ public class BattleshipGameImpl implements BattleshipGame{
     }
 
     @Override
-    public boolean asWon() {
-        List<Ship> ships = this.board.getShips();
-        int nbSunkShips = 0;
+    public boolean asWon() {        
+        int nbSunkShipPart = 0;
         
-        for (Ship ship : ships) {
-            if(ship.isSunk()){
-                nbSunkShips++;
-            }
+        for (int i = 0; i < ROWS_NUMBER; i++) {
+            for (int j = 0; j < COLUMNS_NUMBER; j++) {
+                if(board.getCell(i, j).getState() == CellState.SUNKSHIP){
+                    nbSunkShipPart++;
+                }
+            }            
         }
         
-        return (nbSunkShips == SHIPS_NUMBER);
+        return nbSunkShipPart == board.getNbShipParts();
     }
 
     @Override

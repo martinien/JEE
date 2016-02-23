@@ -18,9 +18,10 @@ public class BattleshipAdapter implements BattleshipGame {
         this.dao = dao;
         this.game = game;
         
-        if(game.getShips().size() == 0){            
+        if(game.getShips().isEmpty()){                        
             this.coreGame = new BattleshipGameImpl(null);
             game.getShips().addAll(this.coreGame.getShips());
+            dao.save(game);
         }
         else{
             this.coreGame = new BattleshipGameImpl(game.getShips());
@@ -64,8 +65,8 @@ public class BattleshipAdapter implements BattleshipGame {
         return game.getToken();
     }
     
-    public Integer getCurrentTurn(){
-        return game.getCurrentTurn();
+    public Integer getNbTurnLeft(){
+        return game.getNbTurnLeft();
     }
 
     @Override

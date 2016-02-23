@@ -2,7 +2,6 @@ package org.cocq_sorel.isen.battleship.web;
 
 
 
-import org.cocq_sorel.isen.battleship.web.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +11,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.cocq_sorel.isen.battleship.core.BattleshipGame;
-import org.cocq_sorel.isen.battleship.core.BattleshipGameImpl;
 import org.cocq_sorel.isen.battleship.core.CellState;
 import org.cocq_sorel.isen.battleship.jpa.BattleshipAdapter;
 import org.cocq_sorel.isen.battleship.jpa.BattleshipDAO;
@@ -64,10 +62,12 @@ public class BattleshipBean implements Serializable {
         return game.getRowsNumber();
     }
 
-
+    public int getNbTurnLeft(){
+        return game.getNbTurnLeft();
+    }
 
     public void reset() {
-
+        
     }
 
 
@@ -79,6 +79,18 @@ public class BattleshipBean implements Serializable {
     public void createNewGame() {
         game = dao.createNewGame();
 
+    }
+    
+    public int hasWon() {
+        if (game.asWon() && game.getNbTurnLeft() > 0) {
+            return 0;
+        } 
+        else if(game.getNbTurnLeft() == 0){
+            return 1;
+        }
+        else{
+            return 2;
+        }
     }
 
     public String getToken() {

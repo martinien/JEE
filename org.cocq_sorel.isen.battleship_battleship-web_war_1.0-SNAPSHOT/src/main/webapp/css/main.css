@@ -32,20 +32,9 @@
 
 #board {
     width: 500px;
+    height: 500px;
 }
 
-.WATER, .SHIP{
-    background-color: #00b2f3;
-}
-
-.HITWATER{
-    background-color: #00b2f3;
-}
-
-.HITSHIP{
-    background-color: #ef404a;
-}
-
-.SUNKSHIP{
-    background-color: #000;
+.battleRow{
+    margin-bottom: .25em !important; 
 }

@@ -13,7 +13,7 @@ import org.cocq_sorel.isen.battleship.core.Ship;
 
 @Entity(name="Game")
 public class Game {
-
+    private static final int NB_MAX_TURN = 50;
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -23,10 +23,12 @@ public class Game {
     
     private List<Turn> turns; 
     private List<Ship> ships;
+    private int nbTurnLeft;
 
     public Game() {        
         turns = new ArrayList<>();
         ships = new ArrayList<>();
+        nbTurnLeft = NB_MAX_TURN;
     }
 
     public String getToken() {
@@ -39,7 +41,7 @@ public class Game {
     }
     
     public void endTurn(){
-        
+        nbTurnLeft--;
     }
     
     
@@ -51,8 +53,8 @@ public class Game {
         return ships;
     }
     
-    public Integer getCurrentTurn(){
-        return getTurns().size();
+    public Integer getNbTurnLeft(){
+        return nbTurnLeft;
     }
 
 }

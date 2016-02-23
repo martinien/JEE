@@ -200,4 +200,22 @@ public class Grid {
         Ship newShip = new Ship(size, parts, horizontal);
         this.ships.add(newShip);
     }
+    
+    public void addShipsFromList(List<Ship> ships){
+        for (Ship ship : ships) {
+            for (ShipPart part : ship.getShipParts()) {
+                this.setCell(part.getrow(), part.getcolumn(), part);
+            }
+            this.ships.add(ship);
+        }               
+    }
+    
+    public int getNbShipParts(){
+        int nbShipParts = 0;
+        for (int i = 0; i < SHIP_SIZES.length; i++) {
+            nbShipParts += SHIP_SIZES[i];
+        }
+        
+        return nbShipParts;
+    }
 }

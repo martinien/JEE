@@ -18,9 +18,12 @@ public class Turn {
     @ManyToOne
     Game game;    
     
-    private int column;        
+    @Column(name="col")
+    private int column; 
+    
+    @Column(name="row")
     private int row;
-
+    
     public Turn() {
 
     }
